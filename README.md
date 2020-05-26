@@ -4,4 +4,4 @@ GIF demo:
 
 **Homepage**
 
-![](https://media.giphy.com/media/TibHU9orxkMUUKVNuH/source.gif)
+![](https://media.giphy.com/media/cMnt7i2RykmpW/giphy.gif)
