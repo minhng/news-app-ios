@@ -16,7 +16,7 @@ GIF demo:
 
 **Keyword trending chart**
 
-![](https://media.giphy.com/media/MZ3aQtCNXHIIVEoIeX/giphy.gif)
+![](https://media.giphy.com/media/J1MJiqLZ3L6oRc9nLO/giphy.gif)
 
 **Sharing on Twitter**
 
