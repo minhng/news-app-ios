@@ -221,27 +221,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.requestWhenInUseAuthorization()
-
-//        if (CLLocationManager.locationServicesEnabled()) {
-//
-//            locationManager.delegate = self
-//            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//            locationManager.startUpdatingLocation()
-//            loadSampleNews()
-//            homeTable.delegate = self
-//            homeTable.dataSource = self
-//            homeAutoSuggestTable.delegate = self
-//            homeAutoSuggestTable.dataSource = self
-//            homeTable.isHidden = false
-//            homeAutoSuggestTable.isHidden = true
-//            setUpNavBar()
-//            homeTable.refreshControl = refresher
-//            bookmarkStored = userDefault.object(forKey: "bookmark") as? [String: Any]
-//            if bookmarkStored == nil {
-//                bookmarkStored = [:]
-//            }
-////            print("bookmark: ", bookmarkStored)
-//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -260,10 +239,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
             homeAutoSuggestTable.isHidden = true
             setUpNavBar()
             homeTable.refreshControl = refresher
-//            bookmarkStored = userDefault.object(forKey: "bookmark") as? [String: Any]
-//            if bookmarkStored == nil {
-//                bookmarkStored = [:]
-//            }
+
         }
     }
     
@@ -290,13 +266,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
         let image = cellResult.image
         let section = cellResult.section
         let date = cellResult.date
-////        let placeId = cellResult["place_id"] as! String
         self.view.makeToast("Article bookmarked. Check out the Bookmarks tab to view", duration: 3.0, position: .bottom)
         let bookData = ["title": title, "image": image, "section": section, "date": date]
         self.bookmarkStored![news_id] = bookData
         self.userDefault.set(self.bookmarkStored, forKey: "bookmark")
     }
-//
+
     func removeFavorite(cellResult: News) {
         let news_id = cellResult.id
         self.view.makeToast("Article removed from Bookmarks", duration: 3.0, position: .bottom)
@@ -460,7 +435,6 @@ extension ViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
     let searchBar = searchController.searchBar
     if !searchBar.text!.isEmpty {
-//        self.homeTable.isHidden = true
         self.homeAutoSuggestTable.isHidden = false
         let headers = [
             "Ocp-Apim-Subscription-Key": "413a61a329e243fc837653de3b99e151"
@@ -476,14 +450,8 @@ extension ViewController: UISearchResultsUpdating {
         }
         DispatchQueue.main.async(execute: self.homeAutoSuggestTable.reloadData)
     } else {
-//        self.autoSuggestResults = []
         self.homeTable.isHidden = false
         self.homeAutoSuggestTable.isHidden = true
     }
-//    } else {
-//        self.autoSuggestResults = []
-//        self.homeTable.isHidden = false
-//        self.homeAutoSuggestTable.isHidden = true
-//    }
   }
 }
